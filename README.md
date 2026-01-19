@@ -15,6 +15,10 @@ Proyect_Terraform
 │   │   ├── main.tf
 │   │   ├── variables.tf
 │   │   └── outputs.tf
+│   ├── azure_firewall       # Module for creating Azure Firewall
+│   │   ├── main.tf
+│   │   ├── variables.tf
+│   │   └── outputs.tf
 │   ├── storage_account      # Module for creating Azure Storage Account
 │   │   ├── main.tf
 │   │   ├── variables.tf
@@ -31,14 +35,14 @@ Proyect_Terraform
 │   │   ├── main.tf
 │   │   ├── variables.tf
 │   │   └── outputs.tf
-│   ├── kubernetes_cluster   # Module for creating Azure Kubernetes Service
+│   ├── azure_backup        # Module for creating Azure Backup (Recovery Services Vault)
 │   │   ├── main.tf
 │   │   ├── variables.tf
 │   │   └── outputs.tf
-│   └── kubernetes_nginx     # Module for creating NGINX deployment in Kubernetes
-│       ├── main.tf
-│       ├── variables.tf
-│       └── outputs.tf
+│   ├── microsoft_defender_for_cloud
+│   │   ├── main.tf
+│   │   ├── variables.tf
+│   │   └── outputs.tf
 └── README.md                # Documentation for the project
 ```
 
@@ -72,15 +76,14 @@ Proyect_Terraform
 
 ## Modules
 
-Each module is responsible for creating a specific Azure resource. The modules are organized as follows:
-
-- **Resource Group**: Creates an Azure Resource Group.
-- **Storage Account**: Creates an Azure Storage Account and Container.
-- **Key Vault**: Creates an Azure Key Vault and Secrets.
-- **Network**: Creates a Virtual Network, Subnet, Network Security Group, and Network Interface.
-- **Virtual Machine**: Provisions an Azure Virtual Machine.
-- **Kubernetes Cluster**: Sets up an Azure Kubernetes Service (AKS) cluster.
-- **Kubernetes NGINX**: Deploys an NGINX application in the Kubernetes cluster.
+-Resource Group: Creates an Azure Resource Group.
+-Storage Account: Creates an Azure Storage Account and Container.
+-Key Vault: Creates an Azure Key Vault and manages Secrets.
+-Network: Creates a Virtual Network, Subnets, Network Security Groups, Public IP Addresses, and Network Interfaces.
+-Virtual Machine: Provisions an Azure Virtual Machine and associates it with Network Interfaces.
+-Azure Firewall: Creates an Azure Firewall, including IP configuration, Network Rule Collections, and Application Rule Collections.
+-Azure Backup: Creates a Recovery Services Vault and configures Backup Policies for Virtual Machines.
+-Microsoft Defender for Cloud: Enables Microsoft Defender for Cloud (Security Center) at the subscription level for specific resource types and applies the Standard protection plan.
 
 ## Conclusion
 

@@ -1,16 +1,7 @@
 variable "vault_name" {
   type        = string
   description = "Nombre del Recovery Services Vault"
-}
-
-variable "location" {
-  type        = string
-  description = "Región de Azure"
-}
-
-variable "resource_group_name" {
-  type        = string
-  description = "Nombre del Resource Group donde se creará el Vault"
+  default     = "RSV-1" 
 }
 
 variable "sku" {
@@ -22,6 +13,7 @@ variable "sku" {
 variable "policy_name" {
   type        = string
   description = "Nombre de la política de backup para VMs"
+  default     = "RSV-1-Policy"
 }
 
 variable "timezone" {

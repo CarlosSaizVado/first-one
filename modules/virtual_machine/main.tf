@@ -41,7 +41,7 @@ resource "azurerm_virtual_machine" "VM2" {
   location              = var.location
   resource_group_name   = var.resource_group_name
   network_interface_ids = [azurerm_network_interface.NIC2.id]
-  vm_size               = var.vm_size_2
+  vm_size               = var.vm_size
 
   os_profile {
     computer_name  = var.vm_name

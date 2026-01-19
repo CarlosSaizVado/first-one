@@ -12,52 +12,33 @@ variable "tenant_id" {
 variable "resource_group_name" {
   description = "The name of the resource group to create or use."
   type        = string
-  default     = "Proyect_RG"
 }
 
 variable "location" {
   description = "The Azure region where resources will be deployed."
   type        = string
-  default     = "East US"
 }
 
 variable "vm_size" {
   description = "The size of the virtual machine."
   type        = string
-  default     = "Standard_B1s"
 }
 
 variable "admin_username" {
   description = "The admin username for the virtual machine."
   type        = string
-  default     = "Carlos"
 }
 
 variable "admin_password" {
   description = "The admin password for the virtual machine."
   type        = string
-  default     = "Carlos1234!"
   sensitive   = true
-}
-
-variable "object_id" {
-  description = "The object ID of the user or service principal."
-  type        = string
-  default     = "6a3dd346-da2d-4020-a910-5dea5bdf0b4a"
 }
 
 variable "tags" {
   description = "A map of tags to assign to resources."
   type        = map(string)
-  default = {
-    Environment = "Test"
-  }
-}
-
-variable "vm_name" {
-  description = "The name of the virtual machine."
-  type        = string
-  default     = "VM"
+  default = {}
 }
 
 /*subscription_id: Used to specify the Azure subscription.

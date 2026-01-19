@@ -36,6 +36,7 @@ module "virtual_machine" {
   admin_username      = var.admin_username
   admin_password      = var.admin_password
 }
+
 module "azure_firewall" {
   source              = "./modules/azure_firewall"
   firewall_name       = "firewall-${random_integer.suffix.result}"
@@ -45,6 +46,7 @@ module "azure_firewall" {
   public_ip_id        = module.network.firewall_public_ip_id
   threat_intel_mode   = "Alert"
 }
+
 module "azure_backup" {
   source              = "./modules/azure_backup"
   vault_name          = "backup-vault-${random_integer.suffix.result}"
@@ -55,6 +57,7 @@ module "azure_backup" {
   backup_time         = "23:00"
   retention_days      = 30
 }
+
 module "microsoft_defender_for_cloud" {
   source         = "./modules/microsoft_defender_for_cloud"
   resource_types = ["VirtualMachines", "StorageAccounts", "SqlServers"]

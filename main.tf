@@ -36,3 +36,26 @@ module "virtual_machine" {
   admin_username      = var.admin_username
   admin_password      = var.admin_password
 }
+module "azure_firewall" {
+  source              = "./modules/azure_firewall"
+  firewall_name       = "firewall-${random_integer.suffix.result}"
+  location            = module.resource_group.location
+  resource_group_name = module.resource_group.resource_group_name
+  subnet_id           = module.network.firewall_subnet_id
+  public_ip_id        = module.network.firewall_public_ip_id
+  threat_intel_mode   = "Alert"
+}
+module "azure_backup" {
+  source              = "./modules/azure_backup"
+  vault_name          = "backup-vault-${random_integer.suffix.result}"
+  location            = module.resource_group.location
+  resource_group_name = module.resource_group.resource_group_name
+  policy_name         = "daily-backup-policy"
+  timezone            = "UTC"
+  backup_time         = "23:00"
+  retention_days      = 30
+}
+module "microsoft_defender_for_cloud" {
+  source         = "./modules/microsoft_defender_for_cloud"
+  resource_types = ["VirtualMachines", "StorageAccounts", "SqlServers"]
+}

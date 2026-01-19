@@ -7,6 +7,6 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "RG" {
-  name     = "pepe"
+  name     = "Security_RG"
   location = var.location
 }

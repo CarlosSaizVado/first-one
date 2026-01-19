@@ -33,3 +33,8 @@ variable "retention_days" {
   description = "Número de días para retener los backups"
   default     = 30
 }
+variable "policy_name"{
+  type        = string
+  description = "Nombre de la política de backup para VMs"
+  default     = "RSV-1-Policy"
+}

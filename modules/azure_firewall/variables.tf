@@ -28,3 +28,13 @@ variable "threat_intel_mode" {
   description = "Modo de inteligencia de amenazas del firewall (Alert, Deny, Off)"
   default     = "Alert"
 }
+variable "firewall_name"{
+  type        = string
+  description = "Nombre del Azure Firewall"
+  default     = "Main_Firewall"
+}
+variable "firewall_policy_name" {
+  type        = string
+  description = "Nombre de la política del Azure Firewall"
+  default     = "Policy_1"
+}

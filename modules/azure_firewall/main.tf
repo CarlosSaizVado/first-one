@@ -15,7 +15,7 @@ resource "azurerm_firewall" "Main_Firewall" {
 # Ejemplo mínimo de regla de red
 resource "azurerm_firewall_network_rule_collection" "Regla_1" {
   name                = "network-rule"
-  azure_firewall_name = azurerm_firewall.Regla_1.name
+  azure_firewall_name = azurerm_firewall.Main_Firewall.name
   resource_group_name = var.resource_group_name
   priority            = 100
   action              = "Allow"
@@ -37,7 +37,7 @@ resource "azurerm_firewall_policy" "Policy_1" {
 
 resource "azurerm_firewall_policy_rule_collection_group" "RCG_1" {
   name                 = "${var.firewall_policy_name}-rcg"
-  azure_firewall_policy_id = azurerm_firewall_policy.RCG_1.id
+  azure_firewall_policy_id = azurerm_firewall_policy.Policy_1.id
   priority             = 100
 
   firewall_policy_rule_collection {
